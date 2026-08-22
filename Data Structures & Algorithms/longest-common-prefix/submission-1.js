@@ -1,0 +1,28 @@
+class Solution {
+    /**
+     * @param {string[]} strs
+     * @return {string}
+     */
+    longestCommonPrefix(strs) {
+        let prefix = strs[0];
+
+        while (prefix.length > 0) {
+            let matches = true;
+
+            for (const str of strs){
+                if (!str.startsWith(prefix)){
+                    matches = false;
+                    break;
+                }
+            }
+            
+            if (matches){
+                return prefix;
+            }
+
+            prefix = prefix.slice(0, -1);
+        }
+
+        return prefix;
+    }
+}
